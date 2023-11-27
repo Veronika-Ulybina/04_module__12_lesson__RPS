@@ -23,7 +23,7 @@
       const computer =
         FIGURES_RUS[getRandomIntInclusive(indexOfFirstElem, indexOfLastElem)];
       let player = prompt('камень, ножницы, бумага?');
-      let resOfGame = '';
+      let resOfGame;
 
       if (player === '') {
         return start();
@@ -52,9 +52,9 @@
 
       if (player[0] === computer[0]) {
         resOfGame = 'Ничья';
-      } else if (player[0] === 'к' && computer[0] === 'н' ||
-      player[0] === 'н' && computer[0] === 'б' ||
-      player[0] === 'б' && computer[0] === 'к') {
+      } else if (player[0] && computer[1] ||
+        player[1] && computer[2] ||
+        player[2] && computer[0]) {
         result.player++;
         resOfGame = 'Вы выйграли';
       } else {
